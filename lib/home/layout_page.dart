@@ -28,8 +28,9 @@ class LayoutPage extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.star, color: Colors.red[500],),
-          Text('41'),
+          // Icon(Icons.star, color: Colors.red[500],),
+          // Text('41'),
+          FavoriteWidget(),
         ],
       ),
     );
@@ -99,4 +100,54 @@ class LayoutPage extends StatelessWidget {
       )
     );
   }
+}
+
+class FavoriteWidget extends StatefulWidget {
+
+  @override
+  _FavoriteWidgetState createState() => new _FavoriteWidgetState();
+
+}
+
+class _FavoriteWidgetState extends State<FavoriteWidget> {
+
+  bool _isFavorited = true;
+  int _favoriteCount = 41;
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorited) {
+        _favoriteCount -= 1;
+        _isFavorited = false;
+      } else {
+        _favoriteCount += 1;
+        _isFavorited = true;
+      }
+    });
+    
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(0.0),
+          child: IconButton(
+            icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
+            color: Colors.red[500],
+            onPressed: _toggleFavorite,
+          ),
+        ),
+        // SizedBox 的作用：当文本改变的时候，text的长度会发生变化，将文本放在SizedBox中可防止出现明显的『跳跃』
+        SizedBox(
+          width: 18.0,
+          child: Container(child: Text('$_favoriteCount'),),
+        ),
+      ],
+    );
+  }
+
 }

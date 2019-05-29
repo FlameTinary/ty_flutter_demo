@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'my_app.dart';
 
 /**
@@ -7,7 +8,11 @@ import 'my_app.dart';
  * MyApp参数代表Flutter应用
  * main函数使用了(=>)符号，这是Dart中单行函数或方法的简写
 */
-void main() => runApp(MyAppDemo());
+
+void main() {
+  debugPaintSizeEnabled=false;
+  runApp(MyAppDemo());
+}
 
 
 
