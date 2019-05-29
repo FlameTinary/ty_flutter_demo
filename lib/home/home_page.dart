@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     CellItem(text: '跳转到错误提示页面'),
     CellItem(text: '布局Demo'),
     CellItem(text: 'Animation Demo'),
+    CellItem(text: '绘图页面'),
   ];
 
   @override
@@ -85,6 +86,10 @@ class _HomePageState extends State<HomePage> {
         } else if (i == 6) {
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return AnimationDemo();
+          }));
+        } else if (i == 7) {
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return PainterDemo();
           }));
         } else {
           print('没有跳转任务');
