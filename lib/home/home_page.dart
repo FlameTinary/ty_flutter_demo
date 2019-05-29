@@ -5,6 +5,8 @@ import 'imgListDemo.dart';
 import 'initial_page.dart';
 import 'form_page.dart';
 import 'layout_page.dart';
+import 'animation_page.dart';
+import 'painter_page.dart';
 
 typedef CellFunc = void Function();
 
@@ -28,6 +30,7 @@ class _HomePageState extends State<HomePage> {
     CellItem(text: '跳转到表单页面'),
     CellItem(text: '跳转到错误提示页面'),
     CellItem(text: '布局Demo'),
+    CellItem(text: 'Animation Demo'),
   ];
 
   @override
@@ -78,6 +81,10 @@ class _HomePageState extends State<HomePage> {
         } else if (i == 5) {
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return LayoutPage();
+          }));
+        } else if (i == 6) {
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return AnimationDemo();
           }));
         } else {
           print('没有跳转任务');
