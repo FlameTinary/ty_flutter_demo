@@ -36,22 +36,22 @@ class _focusState extends State<FocusDemo> {
           Builder(builder: (ctx){
             return Column(
               children: <Widget>[
-                RaisedButton(
-                  child: Text('move focus'),
-                  onPressed: (){
-                    if (null == focusScopeNode) {
-                      focusScopeNode = FocusScope.of(context);
-                    }
-                    focusScopeNode.requestFocus(focusNode2);
-                  },
-                ),
-                RaisedButton(
-                  child: Text('Hidden keyboard'),
-                  onPressed: (){
-                    focusNode1.unfocus();
-                    focusNode2.unfocus();
-                  },
-                ),
+                // RaisedButton(
+                //   child: Text('move focus'),
+                //   onPressed: (){
+                //     if (null == focusScopeNode) {
+                //       focusScopeNode = FocusScope.of(context);
+                //     }
+                //     focusScopeNode.requestFocus(focusNode2);
+                //   },
+                // ),
+                // RaisedButton(
+                //   child: Text('Hidden keyboard'),
+                //   onPressed: (){
+                //     focusNode1.unfocus();
+                //     focusNode2.unfocus();
+                //   },
+                // ),
               ],
             );
           }),

@@ -29,13 +29,13 @@ class UsernameAndPassword extends StatelessWidget {
             print('onChange:$v');
           },
         ),
-        FlatButton(
-          child: Text('获取输入的用户名'),
-          textColor: Colors.lightBlue,
-          onPressed: (){
-            print(_unameController.text);
-          },
-        ),
+        // FlatButton(
+        //   child: Text('获取输入的用户名'),
+        //   textColor: Colors.lightBlue,
+        //   onPressed: (){
+        //     print(_unameController.text);
+        //   },
+        // ),
       ],
     );
   }
