@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home/home_page.dart';
+import './navigation/bottom_navigation_bar.dart';
 
 class MyAppDemo extends StatelessWidget {
   @override
@@ -9,7 +9,8 @@ class MyAppDemo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      home: HomePage(),
+      // home: HomePage(),
+      home: TYBottomNavBar(),
     );
   }
 }
