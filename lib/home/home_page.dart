@@ -40,11 +40,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('home'),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: _cells.length,
         itemBuilder: (BuildContext context, int position) {
           return _getCell(position);
         },
+        separatorBuilder:(context, index) => const Divider(),
       ),
     );
   }
