@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GrowTransition extends StatelessWidget {
-  const GrowTransition(this.animation, {Key key, this.child}) : super(key: key);
+  const GrowTransition({Key key, @required this.animation, this.child}) : super(key: key);
 
   final Animation<double> animation;
   final Widget child;
@@ -57,7 +57,7 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
       appBar: AppBar(title: Text('scale animation page')),
       body: Center(
         child: GrowTransition(
-          animation,
+          animation: animation,
           child: Image.asset('images/lake.jpg'),
         ),
       ),
