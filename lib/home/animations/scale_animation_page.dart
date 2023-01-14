@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class ScaleAnimationPage extends StatefulWidget {
@@ -22,7 +20,8 @@ class _ScaleAnimationPageState extends State<ScaleAnimationPage>
       vsync: this,
     );
     // 指定一个 curve, 弹簧效果
-    Animation bounceCurveAnimation = CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+    Animation bounceCurveAnimation =
+        CurvedAnimation(parent: controller, curve: Curves.bounceIn);
     // 图片宽高从 0~300
     animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation)
       ..addListener(() {

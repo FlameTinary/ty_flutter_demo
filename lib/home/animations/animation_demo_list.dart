@@ -15,8 +15,19 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
   @override
   void initState() {
     _cells
-      ..add(AnimationCellModel('fade动画', routePage: AnimationDemo()))
-      ..add(AnimationCellModel('scale动画', routePage: ScaleAnimationPage()));
+      ..add(
+        AnimationCellModel(
+          'fade动画',
+          routePage: AnimationDemo(),
+        ),
+      )
+      ..add(
+        AnimationCellModel(
+          'scale动画',
+          subtitle: '未优化的原始写法',
+          routePage: ScaleAnimationPage(),
+        ),
+      );
     super.initState();
   }
 
