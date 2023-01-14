@@ -5,8 +5,9 @@ import 'imgListDemo.dart';
 import 'initial_page.dart';
 import 'form_page.dart';
 import 'layout_page.dart';
-import 'animation_page.dart';
+import 'animations/animation_demo_list.dart';
 import 'painter_page.dart';
+import 'nav_route_demo/route_animation.dart';
 
 typedef CellFunc = void Function();
 
@@ -53,6 +54,11 @@ class _HomePageState extends State<HomePage> {
       routePage: ErrorTextFieldDemo(),
     ),
     CellItem(
+      title: '转场动画',
+      subTitle: '转场动画练习',
+      routePage: RouteAnimationDemoList(),
+    ),
+    CellItem(
       title: '布局Demo',
       subTitle: '布局综合练习',
       routePage: LayoutPage(),
@@ -60,7 +66,7 @@ class _HomePageState extends State<HomePage> {
     CellItem(
       title: 'Animation Demo',
       subTitle: '动画练习',
-      routePage: AnimationDemo(),
+      routePage: AnimationDemoList(),
     ),
     CellItem(
       title: '绘图页面',
