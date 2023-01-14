@@ -39,10 +39,7 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     Animation bounceCurveAnimation =
         CurvedAnimation(parent: controller, curve: Curves.bounceIn);
     // 图片宽高从 0~300
-    animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation)
-      ..addListener(() {
-        setState(() {});
-      });
+    animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation);
     // 启动动画
     controller.forward();
     super.initState();
