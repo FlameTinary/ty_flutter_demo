@@ -11,9 +11,11 @@ import 'painter_page.dart';
 typedef CellFunc = void Function();
 
 class CellItem {
-  String text;
+  String title;
+  String subTitle;
+  Widget routePage;
   //CellFunc action;
-  CellItem({Key key, @required this.text});
+  CellItem({Key key, @required this.title, this.routePage, this.subTitle});
 }
 
 class HomePage extends StatefulWidget {
@@ -22,16 +24,49 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   List _cells = [
-    CellItem(text: '系统初始页面'),
-    CellItem(text: '图片列表'),
-    CellItem(text: '盒子模型页面'),
-    CellItem(text: '跳转到表单页面'),
-    CellItem(text: '跳转到错误提示页面'),
-    CellItem(text: '布局Demo'),
-    CellItem(text: 'Animation Demo'),
-    CellItem(text: '绘图页面'),
+    CellItem(
+      title: '系统初始页面',
+      subTitle: '官方案例',
+      routePage: InitialPage(
+        title: '初始页面',
+      ),
+    ),
+    CellItem(
+      title: '图片列表',
+      subTitle: '图片 widget 的使用',
+      routePage: ImageListDemo(),
+    ),
+    CellItem(
+      title: '盒子模型页面',
+      subTitle: '盒子模型练习',
+      routePage: TapBoxDemo(),
+    ),
+    CellItem(
+      title: '跳转到表单页面',
+      subTitle: 'form 表单练习',
+      routePage: FormPage(),
+    ),
+    CellItem(
+      title: '跳转到错误提示页面',
+      subTitle: 'error',
+      routePage: ErrorTextFieldDemo(),
+    ),
+    CellItem(
+      title: '布局Demo',
+      subTitle: '布局综合练习',
+      routePage: LayoutPage(),
+    ),
+    CellItem(
+      title: 'Animation Demo',
+      subTitle: '动画练习',
+      routePage: AnimationDemo(),
+    ),
+    CellItem(
+      title: '绘图页面',
+      subTitle: '绘图白板',
+      routePage: PainterDemo(),
+    ),
   ];
 
   @override
@@ -40,66 +75,30 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('home'),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: _cells.length,
         itemBuilder: (BuildContext context, int position) {
-          return _getCell(position);
+          CellItem item = _cells[position];
+          return ListTile(
+            title: Text(
+              item.title,
+              style: TextStyle(fontSize: 16.0),
+            ),
+            subtitle: Text(item.subTitle),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return item.routePage;
+                  },
+                ),
+              );
+            },
+          );
         },
+        separatorBuilder: (context, index) => const Divider(),
       ),
     );
   }
-
-  Widget _getCell(int i) {
-    CellItem item = _cells[i];
-    return GestureDetector(
-      child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Text(item.text, style: TextStyle(
-          fontSize: 16.0,
-        ),),
-      ),
-      onTap: (){
-        if (i == 0) {
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return InitialPage(title: '初始页面',);
-          }));
-        } else if (i == 1){
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return ImageListDemo();
-          }));
-        } else if (i == 2){
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return TapBoxDemo();
-          }));
-        } else if (i == 3){
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return FormPage();
-          }));
-        } else if (i == 4){
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ErrorTextFieldDemo();
-          }));
-        } else if (i == 5) {
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return LayoutPage();
-          }));
-        } else if (i == 6) {
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return AnimationDemo();
-          }));
-        } else if (i == 7) {
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return PainterDemo();
-          }));
-        } else {
-          print('没有跳转任务');
-        }
-      },
-    );
-  }
-
-  // List _initData() {
-  //   return 
-  // }
-
 }
