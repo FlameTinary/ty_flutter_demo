@@ -24,9 +24,18 @@ class RouteAnimationDemoList extends StatelessWidget {
             title: Text('渐隐渐现'),
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: ((context) => NewPage()),
+              PageRouteBuilder(
+                transitionDuration: Duration(milliseconds: 500),
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: NewPage(),
+                  );
+                },
               ),
+              // MaterialPageRoute(
+              //   builder: ((context) => NewPage()),
+              // ),
             ),
           ),
           ListTile(
