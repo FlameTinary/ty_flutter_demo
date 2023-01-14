@@ -1,21 +1,5 @@
 import 'package:flutter/material.dart';
 
-// 继承自 AnimatiedWidget
-class AnimatedImage extends AnimatedWidget {
-  AnimatedImage({Key key, @required Animation<double> animation})
-      : super(key: key, listenable: animation);
-
-  @override
-  Widget build(BuildContext context) {
-    final animation = listenable as Animation<double>;
-    return Image.asset(
-      'images/lake.jpg',
-      width: animation.value,
-      height: animation.value,
-    );
-  }
-}
-
 class ScaleAnimationPage1 extends StatefulWidget {
   const ScaleAnimationPage1({Key key}) : super(key: key);
 
@@ -30,6 +14,7 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
 
   @override
   void initState() {
+    super.initState();
     // 初始化 controller
     controller = AnimationController(
       duration: Duration(milliseconds: 2000),
@@ -42,7 +27,6 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation);
     // 启动动画
     controller.forward();
-    super.initState();
   }
 
   @override
@@ -50,8 +34,16 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     return Scaffold(
       appBar: AppBar(title: Text('scale animation page')),
       body: Center(
-        child: AnimatedImage(
+        child: AnimatedBuilder(
           animation: animation,
+          child: Image.asset('images/lake.jpg'),
+          builder: (context, child) {
+            return SizedBox(
+              width: animation.value,
+              height: animation.value,
+              child: child,
+            );
+          },
         ),
       ),
     );

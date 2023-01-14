@@ -32,7 +32,7 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
       ..add(
         AnimationCellModel(
           'scale动画',
-          subtitle: 'scale动画使用AnimatedWidget优化',
+          subtitle: 'scale动画使用AnimatedBuilder优化',
           routePage: ScaleAnimationPage1(),
         ),
       );
@@ -50,7 +50,8 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
             AnimationCellModel cellM = _cells[index];
             return ListTile(
               title: Text(cellM.title),
-              subtitle: cellM.subtitle != null ? Text(cellM.subtitle) : Text(''),
+              subtitle:
+                  cellM.subtitle != null ? Text(cellM.subtitle) : Text(''),
               onTap: () {
                 Navigator.push(
                   context,
