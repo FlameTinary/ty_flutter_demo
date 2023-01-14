@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 
+class GrowTransition extends StatelessWidget {
+  const GrowTransition(this.animation, {Key key, this.child}) : super(key: key);
+
+  final Animation<double> animation;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: animation,
+      child: child,
+      builder: (context, child) {
+        return SizedBox(
+          width: animation.value,
+          height: animation.value,
+          child: child,
+        );
+      },
+    );
+  }
+}
+
 class ScaleAnimationPage1 extends StatefulWidget {
   const ScaleAnimationPage1({Key key}) : super(key: key);
 
@@ -34,16 +56,9 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     return Scaffold(
       appBar: AppBar(title: Text('scale animation page')),
       body: Center(
-        child: AnimatedBuilder(
-          animation: animation,
+        child: GrowTransition(
+          animation,
           child: Image.asset('images/lake.jpg'),
-          builder: (context, child) {
-            return SizedBox(
-              width: animation.value,
-              height: animation.value,
-              child: child,
-            );
-          },
         ),
       ),
     );
