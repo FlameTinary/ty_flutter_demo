@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'custom_pageroute_animation.dart';
 
 class RouteAnimationDemoList extends StatelessWidget {
   const RouteAnimationDemoList({Key key}) : super(key: key);
@@ -24,15 +25,21 @@ class RouteAnimationDemoList extends StatelessWidget {
             title: Text('渐隐渐现'),
             onTap: () => Navigator.push(
               context,
-              PageRouteBuilder(
-                transitionDuration: Duration(milliseconds: 500),
-                pageBuilder: (context, animation, secondaryAnimation) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: NewPage(),
-                  );
+              FadeRoute(
+                builder: (context) {
+                  return NewPage();
                 },
               ),
+              // PageRouteBuilder(
+              //   transitionDuration: Duration(milliseconds: 500),
+              //   pageBuilder: (context, animation, secondaryAnimation) {
+              //     return FadeTransition(
+              //       opacity: animation,
+              //       child: NewPage(),
+              //     );
+              //   },
+              // ),
+
               // MaterialPageRoute(
               //   builder: ((context) => NewPage()),
               // ),
