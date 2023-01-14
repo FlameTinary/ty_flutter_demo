@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GrowTransition extends StatelessWidget {
-  const GrowTransition({Key key, @required this.animation, this.child}) : super(key: key);
+  const GrowTransition({Key key, @required this.animation, this.child})
+      : super(key: key);
 
   final Animation<double> animation;
   final Widget child;
@@ -44,10 +45,19 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     );
     // 指定一个 curve, 弹簧效果
     Animation bounceCurveAnimation =
-        CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+        CurvedAnimation(parent: controller, curve: Curves.easeIn);
     // 图片宽高从 0~300
-    animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation);
-    // 启动动画
+    animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          // 动画执行结束,开始反向执行动画
+          controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          // 动画执行到初始位置,开始从初始位置继续播放动画
+          controller.forward();
+        }
+      });
+    // 启动动画, 正向
     controller.forward();
   }
 
