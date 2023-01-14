@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './fade_animation_page.dart';
 import './scale_animation_page.dart';
+import 'scale_animated_widget_page.dart';
 
 class AnimationDemoList extends StatefulWidget {
   const AnimationDemoList({Key key}) : super(key: key);
@@ -27,6 +28,13 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
           subtitle: '未优化的原始写法',
           routePage: ScaleAnimationPage(),
         ),
+      )
+      ..add(
+        AnimationCellModel(
+          'scale动画',
+          subtitle: 'scale动画使用AnimatedWidget优化',
+          routePage: ScaleAnimationPage1(),
+        ),
       );
     super.initState();
   }
@@ -42,6 +50,7 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
             AnimationCellModel cellM = _cells[index];
             return ListTile(
               title: Text(cellM.title),
+              subtitle: cellM.subtitle != null ? Text(cellM.subtitle) : Text(''),
               onTap: () {
                 Navigator.push(
                   context,

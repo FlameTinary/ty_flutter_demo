@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 
-class ScaleAnimationPage extends StatefulWidget {
-  const ScaleAnimationPage({Key key}) : super(key: key);
+// 继承自 AnimatiedWidget
+class AnimatedImage extends AnimatedWidget {
+  AnimatedImage({Key key, @required Animation<double> animation})
+      : super(key: key, listenable: animation);
 
   @override
-  State<ScaleAnimationPage> createState() => _ScaleAnimationPageState();
+  Widget build(BuildContext context) {
+    final animation = listenable as Animation<double>;
+    return Image.asset(
+      'images/lake.jpg',
+      width: animation.value,
+      height: animation.value,
+    );
+  }
 }
 
-class _ScaleAnimationPageState extends State<ScaleAnimationPage>
+class ScaleAnimationPage1 extends StatefulWidget {
+  const ScaleAnimationPage1({Key key}) : super(key: key);
+
+  @override
+  State<ScaleAnimationPage1> createState() => _ScaleAnimationPage1State();
+}
+
+class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
@@ -37,10 +53,8 @@ class _ScaleAnimationPageState extends State<ScaleAnimationPage>
     return Scaffold(
       appBar: AppBar(title: Text('scale animation page')),
       body: Center(
-        child: Image.asset(
-          'images/lake.jpg',
-          width: animation.value,
-          height: animation.value,
+        child: AnimatedImage(
+          animation: animation,
         ),
       ),
     );
