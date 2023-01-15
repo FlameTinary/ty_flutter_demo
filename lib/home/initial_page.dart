@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';//导入包
 import 'package:english_words/english_words.dart';
-/**
- * Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的，而Stateless widget是不可变的。
- * Stateful widget至少由两个类组成：
- *   *一个StatefulWidget类。
- *   *一个 State类； StatefulWidget类本身是不变的，但是 State类中持有的状态在widget生命周期中可能会发生变化。
- * _MyHomePageState类是MyHomePage类对应的状态类, 和MyApp 类不同
- * MyHomePage类中并没有build方法，取而代之的是
- * build方法被挪到了_MyHomePageState方法中，至于为什么这么做，先留个疑问，在分析完完整代码后再来解答。
- */
+/// Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的，而Stateless widget是不可变的。
+/// Stateful widget至少由两个类组成：
+///   *一个StatefulWidget类。
+///   *一个 State类； StatefulWidget类本身是不变的，但是 State类中持有的状态在widget生命周期中可能会发生变化。
+/// _MyHomePageState类是MyHomePage类对应的状态类, 和MyApp 类不同
+/// MyHomePage类中并没有build方法，取而代之的是
+/// build方法被挪到了_MyHomePageState方法中，至于为什么这么做，先留个疑问，在分析完完整代码后再来解答。
 class InitialPage extends StatefulWidget {
   InitialPage({Key key, this.title}) : super(key: key);
 
