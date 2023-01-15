@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ty_flutter_demo/home/value_listenable_demo.dart';
 import 'error_textfield_demo.dart';
 import 'tapbox_demo.dart';
 import 'imgListDemo.dart';
@@ -39,6 +40,11 @@ class _HomePageState extends State<HomePage> {
       title: '计数器案例',
       subTitle: 'inherited版本',
       routePage: InheritedCountPage(),
+    ),
+    CellItem(
+      title: '计数器案例',
+      subTitle: 'ValueListenableBuilder版本',
+      routePage: ValueListenableDemo(),
     ),
     CellItem(
       title: 'custom provider',
