@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ty_flutter_demo/home/stream_builder_demo.dart';
 import 'package:ty_flutter_demo/home/value_listenable_demo.dart';
 import 'error_textfield_demo.dart';
 import 'tapbox_demo.dart';
@@ -56,6 +57,11 @@ class _HomePageState extends State<HomePage> {
       title: 'FutureBuilder demo',
       subTitle: '异步 UI 更新',
       routePage: FutureBuilderDemo(),
+    ),
+    CellItem(
+      title: 'StreamBuilder demo',
+      subTitle: '异步 UI 更新',
+      routePage: StreamBuilderDemo(),
     ),
     CellItem(
       title: '图片列表',
