@@ -7,7 +7,7 @@ class ErrorTextFieldDemo extends StatefulWidget {
 
 class _ErrorTextFieldDemoState extends State<ErrorTextFieldDemo> {
 
-  String _errorText;
+  late String _errorText;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _ErrorTextFieldDemoState extends State<ErrorTextFieldDemo> {
               if (!isEmail(text)) {
                 _errorText = 'Error: this is no a email';
               } else {
-                _errorText = null;
+                _errorText = '';
               }
             });
           },

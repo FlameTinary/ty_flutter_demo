@@ -8,7 +8,7 @@ import '../mine/mine_page.dart';
 import '../photos/photo_page.dart';
 
 class TYBottomNavBar extends StatefulWidget {
-  const TYBottomNavBar({Key key}) : super(key: key);
+  const TYBottomNavBar({Key? key}) : super(key: key);
 
   @override
   State<TYBottomNavBar> createState() => _TYBottomNavBarState();

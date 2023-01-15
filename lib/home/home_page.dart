@@ -14,10 +14,10 @@ typedef CellFunc = void Function();
 
 class CellItem {
   String title;
-  String subTitle;
-  Widget routePage;
+  String? subTitle;
+  Widget? routePage;
   //CellFunc action;
-  CellItem({Key key, @required this.title, this.routePage, this.subTitle});
+  CellItem({Key? key, required this.title, this.routePage, this.subTitle});
 }
 
 class HomePage extends StatefulWidget {
@@ -96,13 +96,13 @@ class _HomePageState extends State<HomePage> {
               item.title,
               style: TextStyle(fontSize: 16.0),
             ),
-            subtitle: Text(item.subTitle),
+            subtitle: Text(item.subTitle != null ? item.subTitle! : ''),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return item.routePage;
+                    return item.routePage != null ? item.routePage! : Center();
                   },
                 ),
               );

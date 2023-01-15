@@ -3,7 +3,7 @@ import 'custom_pageroute_animation.dart';
 import 'hero_from_page.dart';
 
 class RouteAnimationDemoList extends StatelessWidget {
-  const RouteAnimationDemoList({Key key}) : super(key: key);
+  const RouteAnimationDemoList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class RouteAnimationDemoList extends StatelessWidget {
 
 // 转场后的页面
 class NewPage extends StatelessWidget {
-  const NewPage({Key key}) : super(key: key);
+  const NewPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

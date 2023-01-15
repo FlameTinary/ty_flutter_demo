@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'hero_to_page.dart';
 
 class HeroFromPage extends StatefulWidget {
-  const HeroFromPage({Key key}) : super(key: key);
+  const HeroFromPage({Key? key}) : super(key: key);
 
   @override
   State<HeroFromPage> createState() => _HeroFromPageState();

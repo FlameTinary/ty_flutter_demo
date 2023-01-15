@@ -11,7 +11,7 @@ class _focusState extends State<FocusDemo> {
 
   FocusNode focusNode1 = FocusNode();
   FocusNode focusNode2 = FocusNode();
-  FocusScopeNode focusScopeNode;
+  late FocusScopeNode focusScopeNode;
 
   @override
   Widget build(BuildContext context) {

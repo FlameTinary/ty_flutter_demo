@@ -4,7 +4,7 @@ import './scale_animation_page.dart';
 import 'scale_animated_widget_page.dart';
 
 class AnimationDemoList extends StatefulWidget {
-  const AnimationDemoList({Key key}) : super(key: key);
+  const AnimationDemoList({Key? key}) : super(key: key);
 
   @override
   State<AnimationDemoList> createState() => _AnimationDemoListState();
@@ -51,13 +51,13 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
             return ListTile(
               title: Text(cellM.title),
               subtitle:
-                  cellM.subtitle != null ? Text(cellM.subtitle) : Text(''),
+                  cellM.subtitle != null ? Text(cellM.subtitle!) : Text(''),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return cellM.routePage;
+                      return cellM.routePage!;
                     },
                   ),
                 );
@@ -74,8 +74,8 @@ class _AnimationDemoListState extends State<AnimationDemoList> {
 
 class AnimationCellModel {
   String title;
-  String subtitle;
-  Widget routePage;
+  String? subtitle;
+  Widget? routePage;
 
   AnimationCellModel(this.title, {this.subtitle, this.routePage});
 }

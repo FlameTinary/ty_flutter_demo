@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FadeRoute extends PageRoute {
   FadeRoute({
-    @required this.builder,
+    required this.builder,
     this.barrierColor,
     this.barrierLabel,
     this.maintainState = true,
@@ -20,10 +20,10 @@ class FadeRoute extends PageRoute {
   final bool barrierDismissible;
 
   @override
-  final Color barrierColor;
+  final Color? barrierColor;
 
   @override
-  final String barrierLabel;
+  final String? barrierLabel;
 
   @override
   final bool maintainState;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PhotoPage extends StatelessWidget {
-  const PhotoPage({Key key}) : super(key: key);
+  const PhotoPage({Key? key}) : super(key: key);
 
   // 返回上级页面
   void _back(context) {

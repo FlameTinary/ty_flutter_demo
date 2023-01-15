@@ -7,8 +7,8 @@ class AnimationDemo extends StatefulWidget {
 
 class _AnimationDemoState extends State<AnimationDemo> with TickerProviderStateMixin {
 
-  AnimationController controller;
-  CurvedAnimation curve;
+  late AnimationController controller;
+  late CurvedAnimation curve;
 
   @override
   void initState() {

@@ -8,7 +8,7 @@ import 'package:english_words/english_words.dart';
 /// MyHomePage类中并没有build方法，取而代之的是
 /// build方法被挪到了_MyHomePageState方法中，至于为什么这么做，先留个疑问，在分析完完整代码后再来解答。
 class InitialPage extends StatefulWidget {
-  InitialPage({Key key, this.title}) : super(key: key);
+  InitialPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 

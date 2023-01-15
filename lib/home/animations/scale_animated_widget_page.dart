@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class GrowTransition extends StatelessWidget {
-  const GrowTransition({Key key, @required this.animation, this.child})
+  const GrowTransition({Key? key, required this.animation, this.child})
       : super(key: key);
 
   final Animation<double> animation;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class GrowTransition extends StatelessWidget {
 }
 
 class ScaleAnimationPage1 extends StatefulWidget {
-  const ScaleAnimationPage1({Key key}) : super(key: key);
+  const ScaleAnimationPage1({Key? key}) : super(key: key);
 
   @override
   State<ScaleAnimationPage1> createState() => _ScaleAnimationPage1State();
@@ -32,8 +32,8 @@ class ScaleAnimationPage1 extends StatefulWidget {
 
 class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController controller;
+  late Animation<double> animation;
+  late AnimationController controller;
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
       vsync: this,
     );
     // 指定一个 curve, 弹簧效果
-    Animation bounceCurveAnimation =
+    Animation<double> bounceCurveAnimation =
         CurvedAnimation(parent: controller, curve: Curves.easeIn);
     // 图片宽高从 0~300
     animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation)

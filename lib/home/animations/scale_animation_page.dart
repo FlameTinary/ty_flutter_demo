@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScaleAnimationPage extends StatefulWidget {
-  const ScaleAnimationPage({Key key}) : super(key: key);
+  const ScaleAnimationPage({Key? key}) : super(key: key);
 
   @override
   State<ScaleAnimationPage> createState() => _ScaleAnimationPageState();
@@ -9,8 +9,8 @@ class ScaleAnimationPage extends StatefulWidget {
 
 class _ScaleAnimationPageState extends State<ScaleAnimationPage>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController controller;
+  late Animation<double> animation;
+  late AnimationController controller;
 
   @override
   void initState() {
@@ -20,7 +20,7 @@ class _ScaleAnimationPageState extends State<ScaleAnimationPage>
       vsync: this,
     );
     // 指定一个 curve, 弹簧效果
-    Animation bounceCurveAnimation =
+    Animation<double> bounceCurveAnimation =
         CurvedAnimation(parent: controller, curve: Curves.bounceIn);
     // 图片宽高从 0~300
     animation = Tween(begin: 0.0, end: 300.0).animate(bounceCurveAnimation)

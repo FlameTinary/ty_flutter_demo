@@ -36,12 +36,12 @@ class _PainterDemoState extends State<PainterDemo> {
       body: GestureDetector(
         onPanUpdate: (DragUpdateDetails details){
           setState(() {
-            RenderBox referenceBox = context.findRenderObject();
+            RenderBox referenceBox = context.findRenderObject() as RenderBox;
             Offset localPosition = referenceBox.globalToLocal(details.globalPosition);
             _points = List.from(_points)..add(localPosition);
           });
         },
-        onPanEnd: (DragEndDetails details) => _points.add(null),
+        onPanEnd: (DragEndDetails details) => _points.add(Offset(0.0, 0.0)),
         child: CustomPaint(painter: SignaturePainter(_points), size: Size.infinite,),
       ),
     );

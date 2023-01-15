@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 /// 继承自InheritedWidget, 用于保存 count 数据
 class ShareDataWidget extends InheritedWidget {
-  ShareDataWidget({Key key, @required Widget child, @required this.data})
+  ShareDataWidget({Key? key, required Widget child, required this.data})
       : super(key: key, child: child);
 
   final int data;
 
-  static ShareDataWidget of(BuildContext context) {
+  static ShareDataWidget? of(BuildContext context) {
     /// 这个方法会注册依赖关系
     /// 如果使用这个方法InheritedWidget和依赖它的子孙组件关系便完成了注册，
     /// 之后当InheritedWidget发生变化时，就会更新依赖它的子孙组件，
@@ -17,7 +17,7 @@ class ShareDataWidget extends InheritedWidget {
     // 这个方法不会注册依赖关系
     return context
         .getElementForInheritedWidgetOfExactType<ShareDataWidget>()
-        .widget;
+        ?.widget as ShareDataWidget;
   }
 
   @override
@@ -28,24 +28,17 @@ class ShareDataWidget extends InheritedWidget {
 
 /// 封装一个用于显示 count 的 widget
 class _TextCountWidget extends StatefulWidget {
-  const _TextCountWidget({Key key}) : super(key: key);
+  const _TextCountWidget({Key? key}) : super(key: key);
 
   @override
   State<_TextCountWidget> createState() => __TextCountWidgetState();
 }
 
 class __TextCountWidgetState extends State<_TextCountWidget> {
-  String _getCountString(BuildContext context) {
-    if (ShareDataWidget.of(context) != null &&
-        ShareDataWidget.of(context).data != null) {
-      return ShareDataWidget.of(context).data.toString();
-    }
-    return '0';
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Text("Count: ${_getCountString(context)}");
+    return Text("Count: ${ShareDataWidget.of(context)?.data.toString()}");
   }
 
   @override
@@ -58,7 +51,7 @@ class __TextCountWidgetState extends State<_TextCountWidget> {
 
 /// 点击按钮改变保存在 InheritedWidget 中的 count
 class InheritedCountPage extends StatefulWidget {
-  const InheritedCountPage({Key key}) : super(key: key);
+  const InheritedCountPage({Key? key}) : super(key: key);
 
   @override
   State<InheritedCountPage> createState() => _InheritedCountPageState();
