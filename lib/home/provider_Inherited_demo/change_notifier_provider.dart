@@ -14,11 +14,9 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
 
   // 定义一个便捷方法, 便于子 widget 方便的获取共享数据
   static T? of<T>(BuildContext context) {
-    final data = context
-        .dependOnInheritedWidgetOfExactType<InheritedProvider<T>>()
-        ?.data;
-
-    return data;
+    final provider =
+        context.dependOnInheritedWidgetOfExactType<InheritedProvider<T>>();
+    return provider?.data;
   }
 
   //FIXME: 自动生成的代码一定不要忘记修改这里
@@ -28,7 +26,8 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
 }
 
 //FIXME: 自动生成的代码一定不要忘记修改这里
-class _ChangeNotifierProviderState<T extends ChangeNotifier> extends State<ChangeNotifierProvider<T>> {
+class _ChangeNotifierProviderState<T extends ChangeNotifier>
+    extends State<ChangeNotifierProvider<T>> {
   // 数据更新时调用这个方法
   void update() {
     setState(() {});
@@ -60,6 +59,9 @@ class _ChangeNotifierProviderState<T extends ChangeNotifier> extends State<Chang
 
   @override
   Widget build(BuildContext context) {
-    return InheritedProvider(child: widget.child, data: widget.data,);
+    return InheritedProvider(
+      child: widget.child,
+      data: widget.data,
+    );
   }
 }
