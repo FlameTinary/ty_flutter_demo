@@ -11,6 +11,7 @@ import 'painter_page.dart';
 import 'nav_route_demo/route_animation.dart';
 import 'inherited_count_demo.dart';
 import 'provider_Inherited_demo/provider_demo.dart';
+import 'future_builder_demo.dart';
 
 typedef CellFunc = void Function();
 
@@ -50,6 +51,11 @@ class _HomePageState extends State<HomePage> {
       title: 'custom provider',
       subTitle: '实现一个provider',
       routePage: CustomProviderDemo(),
+    ),
+    CellItem(
+      title: 'FutureBuilder demo',
+      subTitle: '异步 UI 更新',
+      routePage: FutureBuilderDemo(),
     ),
     CellItem(
       title: '图片列表',

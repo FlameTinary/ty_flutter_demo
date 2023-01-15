@@ -9,12 +9,15 @@ class ValueListenableDemo extends StatefulWidget {
 }
 
 class _ValueListenableDemoState extends State<ValueListenableDemo> {
+  // 使用ValueNotifier封装数据
   final ValueNotifier<int> _counter = ValueNotifier<int>(0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('valueListenableBuilder')),
       body: Center(
+        // 使用ValueListenableBuilder监听数据变化, 
+        // 数据变化后会调用ValueListenableBuilder的 builder
         child: ValueListenableBuilder<int>(
           builder: (context, value, child) {
             return Column(
