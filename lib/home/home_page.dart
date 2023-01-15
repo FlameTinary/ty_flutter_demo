@@ -9,6 +9,7 @@ import 'animations/animation_demo_list.dart';
 import 'painter_page.dart';
 import 'nav_route_demo/route_animation.dart';
 import 'inherited_count_demo.dart';
+import 'provider_Inherited_demo/provider_demo.dart';
 
 typedef CellFunc = void Function();
 
@@ -38,6 +39,11 @@ class _HomePageState extends State<HomePage> {
       title: '计数器案例',
       subTitle: 'inherited版本',
       routePage: InheritedCountPage(),
+    ),
+    CellItem(
+      title: 'custom provider',
+      subTitle: '实现一个provider',
+      routePage: CustomProviderDemo(),
     ),
     CellItem(
       title: '图片列表',
