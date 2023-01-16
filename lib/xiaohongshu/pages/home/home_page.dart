@@ -39,7 +39,9 @@ class _XHSHomePageState extends State<XHSHomePage>
       length: _tabs.length,
       vsync: this,
     )..addListener(() {
-        _tabCurrentIndex = _tabController.index;
+        setState(() {
+          _tabCurrentIndex = _tabController.index;
+        });
       });
   }
 
@@ -94,8 +96,17 @@ class _XHSHomePageState extends State<XHSHomePage>
           },
         ),
       ),
-      body: Center(
-        child: Text('Home'),
+      body: TabBarView(
+        controller: _tabController,
+        children: _tabs
+            .map((e) => Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    e,
+                    textScaleFactor: 5,
+                  ),
+                ))
+            .toList(),
       ),
     );
   }
