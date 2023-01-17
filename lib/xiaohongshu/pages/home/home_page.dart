@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:ty_flutter_demo/xiaohongshu/pages/home/home_tabbar_page.dart';
 import 'package:ty_flutter_demo/xiaohongshu/pages/home/logo_widget.dart';
 import 'package:ty_flutter_demo/xiaohongshu/pages/home/search_navbar.dart';
 
@@ -99,13 +100,7 @@ class _XHSHomePageState extends State<XHSHomePage>
       body: TabBarView(
         controller: _tabController,
         children: _tabs
-            .map((e) => Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    e,
-                    textScaleFactor: 5,
-                  ),
-                ))
+            .map((e) => XHSTabPage(text: e))
             .toList(),
       ),
     );

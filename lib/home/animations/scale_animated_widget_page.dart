@@ -68,7 +68,7 @@ class _ScaleAnimationPage1State extends State<ScaleAnimationPage1>
       body: Center(
         child: GrowTransition(
           animation: animation,
-          child: Image.asset('images/lake.jpg'),
+          child: Image.asset('assets/lake.jpg'),
         ),
       ),
     );

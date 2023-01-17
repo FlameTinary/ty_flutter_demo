@@ -11,7 +11,7 @@ class XHSLogo extends StatelessWidget {
         bottom: 4,
       ),
       child: Image.asset(
-        'images/xiaohongshu/home_logo_normal.png',
+        'assets/xiaohongshu/home_logo_normal.png',
       ),
     );
   }

@@ -38,7 +38,7 @@ class _ScaleAnimationPageState extends State<ScaleAnimationPage>
       appBar: AppBar(title: Text('scale animation page')),
       body: Center(
         child: Image.asset(
-          'images/lake.jpg',
+          'assets/lake.jpg',
           width: animation.value,
           height: animation.value,
         ),

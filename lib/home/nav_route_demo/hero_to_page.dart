@@ -12,7 +12,7 @@ class HeroToPage extends StatelessWidget {
       body: Center(
         child: Hero(
           tag: 'lake',
-          child: Image.asset('images/lake.jpg'),
+          child: Image.asset('assets/lake.jpg'),
         ),
       ),
     );

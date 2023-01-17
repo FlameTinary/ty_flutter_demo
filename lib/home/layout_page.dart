@@ -89,7 +89,7 @@ class LayoutPage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Image.asset(
-            'images/lake.jpg',
+            'assets/lake.jpg',
             height: 240.0,
             fit: BoxFit.cover,
           ),

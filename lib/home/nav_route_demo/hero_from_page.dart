@@ -42,7 +42,7 @@ class _HeroFromPageState extends State<HeroFromPage> {
                   tag: 'lake',
                   child: ClipOval(
                     child: Image.asset(
-                      'images/lake.jpg',
+                      'assets/lake.jpg',
                     ),
                   ),
                 ),
