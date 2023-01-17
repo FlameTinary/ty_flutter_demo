@@ -34,12 +34,18 @@ class XHSTabViewItem extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              XHSAccountInfo(
-                account: accountName,
-                avatar: avatar,
+              Expanded(
+                flex: 2,
+                child: XHSAccountInfo(
+                  account: accountName,
+                  avatar: avatar,
+                ),
               ),
-              XHSLikeInfo(
-                like: like,
+              Expanded(
+                flex: 1,
+                child: XHSLikeInfo(
+                  like: like,
+                ),
               ),
             ],
           ),
@@ -59,16 +65,29 @@ class XHSAccountInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          margin: EdgeInsets.only(right: 3),
-          width: 15,
-          height: 15,
-          child: ClipOval(child: Image.network(avatar)),
+        SizedBox(
+          width: 20,
+          height: 20,
+          child: ClipOval(
+            child: Image.network(avatar),
+          ),
         ),
-        Text(
-          account,
-          style: TextStyle(fontSize: 12.0),
+        Expanded(
+          flex: 1,
+          child: Container(
+            margin: EdgeInsets.only(left: 3),
+            child: Text(
+              account,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 12.0,
+                color: Color(0xFF333333),
+              ),
+            ),
+          ),
         ),
       ],
     );
@@ -83,10 +102,18 @@ class XHSLikeInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(Icons.heart_broken),
-        Text(like),
+        Expanded(
+          flex: 1,
+          child: Icon(Icons.heart_broken),
+        ),
+        Text(
+          like,
+          style: TextStyle(
+              color: Color(0xFF999999), overflow: TextOverflow.ellipsis),
+        ),
       ],
     );
   }
