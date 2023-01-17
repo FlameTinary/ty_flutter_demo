@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ty_flutter_demo/xiaohongshu/pages/home/search_page.dart';
 
 class XHSSearchNavBar extends StatelessWidget {
   const XHSSearchNavBar({super.key});
@@ -28,7 +29,19 @@ class XHSSearchNavBar extends StatelessWidget {
             elevation: 4,
             shadowColor: Color.fromARGB(111, 245, 245, 245),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: XHSSearchPage(),
+                  );
+                },
+              ),
+            );
+          },
         ),
       ),
     );
