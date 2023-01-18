@@ -35,6 +35,7 @@ class XHSSearchLikeWidget extends StatelessWidget {
             margin: EdgeInsets.only(top: 10.0),
             height: 100.0,
             child: GridView(
+              physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

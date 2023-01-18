@@ -60,8 +60,43 @@ class _XHSSearchPageState extends State<XHSSearchPage> {
           ),
         ),
       ),
-      body: ListView(
-        children: _items,
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: XHSSearchHistoryWidget(),
+          ),
+          SliverToBoxAdapter(
+            child: XHSSearchLikeWidget(),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 8.0),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                '搜索发现',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 8.0, right: 8.0),
+            sliver: SliverFixedExtentList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  // 创建列表
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Text('我在博物馆和自己合照'), Text('1100.9w')],
+                  );
+                },
+                childCount: 10,
+              ),
+              itemExtent: 50,
+            ),
+          )
+        ],
       ),
     );
   }

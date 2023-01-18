@@ -5,10 +5,26 @@ class XHSSearchHotWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 200.0,
-      color: Colors.blue,
+    return Column(
+      children: [
+        ListTile(
+          contentPadding: EdgeInsets.only(left: 8.0),
+          title: Text(
+            '搜索发现',
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        ListView.separated(
+          separatorBuilder: (context, index) => Divider(),
+          itemBuilder: (context, index) {
+            return Text('data');
+          },
+          itemCount: 10,
+        ),
+      ],
     );
   }
 }

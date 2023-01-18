@@ -30,24 +30,36 @@ class XHSSearchHistoryWidget extends StatelessWidget {
               alignment: WrapAlignment.start,
               children: [
                 Chip(
-                  avatar: CircleAvatar(
-                      backgroundColor: Colors.blue, child: Text('A')),
-                  label: Text('Hamilton'),
+                  backgroundColor: Colors.grey.shade200,
+                  label: Text('react开发'),
+                  labelStyle: TextStyle(
+                    color: Color(0xff666666),
+                    fontSize: 14.0,
+                  ),
                 ),
                 Chip(
-                  avatar: CircleAvatar(
-                      backgroundColor: Colors.blue, child: Text('M')),
-                  label: Text('Lafayette'),
+                  backgroundColor: Colors.grey.shade200,
+                  label: Text('flutter 开发'),
+                  labelStyle: TextStyle(
+                    color: Color(0xff666666),
+                    fontSize: 14.0,
+                  ),
                 ),
                 Chip(
-                  avatar: CircleAvatar(
-                      backgroundColor: Colors.blue, child: Text('H')),
-                  label: Text('Mulligan'),
+                  backgroundColor: Colors.grey.shade200,
+                  label: Text('原生开发'),
+                  labelStyle: TextStyle(
+                    color: Color(0xff666666),
+                    fontSize: 14.0,
+                  ),
                 ),
                 Chip(
-                  avatar: CircleAvatar(
-                      backgroundColor: Colors.blue, child: Text('J')),
-                  label: Text('Laurens'),
+                  backgroundColor: Colors.grey.shade200,
+                  label: Text('小程序开发'),
+                  labelStyle: TextStyle(
+                    color: Color(0xff666666),
+                    fontSize: 14.0,
+                  ),
                 ),
               ],
             ),
