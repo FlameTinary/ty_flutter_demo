@@ -169,16 +169,18 @@ class AdsInfo {
   String? trackId;
   String? trackUrl;
 
-  factory AdsInfo.fromJson(Map<String, dynamic>? json) => json != null ? AdsInfo(
-        adsId: json["ads_id"],
-        isReplaceTitle: json["isReplaceTitle"],
-        isReplaceUrl: json["isReplaceUrl"],
-        photoUrl: json["photoUrl"],
-        tipsOnPic: json["tips_on_pic"],
-        titleName: json["titleName"],
-        trackId: json["track_id"],
-        trackUrl: json["track_url"],
-      ) : AdsInfo();
+  factory AdsInfo.fromJson(Map<String, dynamic>? json) => json != null
+      ? AdsInfo(
+          adsId: json["ads_id"],
+          isReplaceTitle: json["isReplaceTitle"],
+          isReplaceUrl: json["isReplaceUrl"],
+          photoUrl: json["photoUrl"],
+          tipsOnPic: json["tips_on_pic"],
+          titleName: json["titleName"],
+          trackId: json["track_id"],
+          trackUrl: json["track_url"],
+        )
+      : AdsInfo();
 
   Map<String, dynamic> toJson() => {
         "ads_id": adsId,
@@ -272,11 +274,13 @@ class UrlMultiLevel {
   String? medium;
   String? high;
 
-  factory UrlMultiLevel.fromJson(Map<String, dynamic>? json) => json != null ? UrlMultiLevel(
-        low: json["low"],
-        medium: json["medium"],
-        high: json["high"],
-      ) : UrlMultiLevel();
+  factory UrlMultiLevel.fromJson(Map<String, dynamic>? json) => json != null
+      ? UrlMultiLevel(
+          low: json["low"],
+          medium: json["medium"],
+          high: json["high"],
+        )
+      : UrlMultiLevel();
 
   Map<String, dynamic> toJson() => {
         "low": low,
@@ -390,13 +394,13 @@ class VideoInfoV2 {
   });
 
   Media? media;
-  Image? image;
+  XHSImage? image;
   Capa? capa;
   DebugInfo? consumer;
 
   factory VideoInfoV2.fromJson(Map<String, dynamic> json) => VideoInfoV2(
         media: Media.fromJson(json["media"]),
-        image: Image.fromJson(json["image"]),
+        image: XHSImage.fromJson(json["image"]),
         capa: Capa.fromJson(json["capa"]),
         consumer: DebugInfo.fromJson(json["consumer"]),
       );
@@ -437,8 +441,8 @@ class Capa {
       };
 }
 
-class Image {
-  Image({
+class XHSImage {
+  XHSImage({
     this.firstFrame,
     this.thumbnail,
     this.thumbnailDim,
@@ -448,7 +452,7 @@ class Image {
   String? thumbnail;
   String? thumbnailDim;
 
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
+  factory XHSImage.fromJson(Map<String, dynamic> json) => XHSImage(
         firstFrame: json["first_frame"],
         thumbnail: json["thumbnail"],
         thumbnailDim: json["thumbnail_dim"],
