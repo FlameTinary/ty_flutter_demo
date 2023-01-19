@@ -18,7 +18,6 @@ class XHSMinePage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.reorder),
           onPressed: () {
-            print('openDrawer()');
             // 发送通知, 打开 drawer
             XHSDrawerNotification().dispatch(context);
           },
