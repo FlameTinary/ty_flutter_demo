@@ -15,6 +15,12 @@ class XHSMinePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('我的'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.share),
+          ),
+        ],
         leading: IconButton(
           icon: Icon(Icons.reorder),
           onPressed: () {
