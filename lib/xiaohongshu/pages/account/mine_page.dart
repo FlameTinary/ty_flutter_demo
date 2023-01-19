@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ty_flutter_demo/xiaohongshu/common/notifications/drawer_notification.dart';
-
 import 'left_drawer.dart';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 class XHSMinePage extends StatelessWidget {
   const XHSMinePage({super.key});
@@ -17,7 +18,16 @@ class XHSMinePage extends StatelessWidget {
         title: Text('我的'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Fluttertoast.showToast(
+                  msg: "分享功能待完成",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIosWeb: 2,
+                  backgroundColor: Colors.black54,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
+            },
             icon: Icon(Icons.share),
           ),
         ],
