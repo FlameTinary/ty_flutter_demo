@@ -60,6 +60,7 @@ class _XHSSearchPageState extends State<XHSSearchPage> {
           ),
         ),
       ),
+      /// 使用CustomScrollView组合多个可滚动的 widget 到同一个 viewport 中
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
