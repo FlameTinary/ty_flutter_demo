@@ -102,19 +102,7 @@ class _XHSMinePageState extends State<XHSMinePage> {
                     },
                   ),
                   actions: [
-                    IconButton(
-                      onPressed: () {
-                        Fluttertoast.showToast(
-                            msg: "分享功能待完成",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIosWeb: 2,
-                            backgroundColor: Colors.black54,
-                            textColor: Colors.white,
-                            fontSize: 16.0);
-                      },
-                      icon: Icon(Icons.share),
-                    ),
+                    _shareBtn(),
                   ],
                   flexibleSpace: FlexibleSpaceBar(
                     background: Container(
@@ -140,19 +128,7 @@ class _XHSMinePageState extends State<XHSMinePage> {
                                 TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                           // 性别
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black12,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            width: 30,
-                            height: 20,
-                            child: Icon(
-                              size: 15,
-                              Icons.male_rounded,
-                              color: Colors.blue.shade300,
-                            ),
-                          ),
+                          _sexWidget(),
                           // 其他信息
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,130 +136,18 @@ class _XHSMinePageState extends State<XHSMinePage> {
                               // 数字信息
                               Row(
                                 children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        '117',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(
-                                        height: 3,
-                                      ),
-                                      Text(
-                                        '关注',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        '117',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(
-                                        height: 3,
-                                      ),
-                                      Text(
-                                        '粉丝',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        '117',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(
-                                        height: 3,
-                                      ),
-                                      Text(
-                                        '获赞与收藏',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
+                                  _numberInfoWidget('117', '关注'),
+                                  SizedBox(width: 10),
+                                  _numberInfoWidget('117', '粉丝'),
+                                  SizedBox(width: 10),
+                                  _numberInfoWidget('117', '获赞与收藏'),
                                 ],
                               ),
-                              // 资料和设置
+                              // 编辑资料和设置按钮
                               Row(
                                 children: [
-                                  GestureDetector(
-                                    onTapUp: (details) {
-                                      Fluttertoast.showToast(
-                                          msg: "编辑资料按钮点击",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 2,
-                                          backgroundColor: Colors.black54,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 30,
-                                      padding:
-                                          EdgeInsets.only(left: 20, right: 20),
-                                      margin: EdgeInsets.only(right: 10),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white30,
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                      child: Text(
-                                        '编辑资料',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12.0),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTapUp: (details) {
-                                      Fluttertoast.showToast(
-                                          msg: "设置按钮点击",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 2,
-                                          backgroundColor: Colors.black54,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 30,
-                                      padding:
-                                          EdgeInsets.only(left: 15, right: 15),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white30,
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                      child: Icon(
-                                        size: 18.0,
-                                        Icons.settings,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
+                                  _editAccountInfoBtn(),
+                                  _settingBtn()
                                 ],
                               ),
                             ],
@@ -376,6 +240,111 @@ class _XHSMinePageState extends State<XHSMinePage> {
     //   );
   }
 
+  // 分享按钮组件
+  _shareBtn() {
+    return IconButton(
+      onPressed: () {
+        _showToast("分享功能待完成");
+      },
+      icon: Icon(Icons.share),
+    );
+  }
+
+  // 性别组件
+  _sexWidget() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.black12,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      width: 30,
+      height: 20,
+      child: Icon(
+        size: 15,
+        Icons.male_rounded,
+        color: Colors.blue.shade300,
+      ),
+    );
+  }
+
+  // 关注数/点赞数等
+  _numberInfoWidget(String numberStr, String infoStr) {
+    return Column(
+      children: [
+        Text(
+          numberStr,
+          style: TextStyle(fontSize: 10.0, color: Colors.white),
+        ),
+        SizedBox(
+          height: 3,
+        ),
+        Text(
+          infoStr,
+          style: TextStyle(fontSize: 10.0, color: Colors.white),
+        ),
+      ],
+    );
+  }
+
+  // 编辑资料按钮
+  _editAccountInfoBtn() {
+    return GestureDetector(
+      onTapUp: (details) {
+        _showToast("编辑资料按钮点击");
+      },
+      child: Container(
+        alignment: Alignment.center,
+        height: 30,
+        padding: EdgeInsets.only(left: 20, right: 20),
+        margin: EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          color: Colors.white30,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Text(
+          '编辑资料',
+          style: TextStyle(color: Colors.white, fontSize: 12.0),
+        ),
+      ),
+    );
+  }
+
+  // 设置按钮
+  _settingBtn() {
+    return GestureDetector(
+      onTapUp: (details) {
+        _showToast("设置按钮点击");
+      },
+      child: Container(
+        alignment: Alignment.center,
+        height: 30,
+        padding: EdgeInsets.only(left: 15, right: 15),
+        decoration: BoxDecoration(
+          color: Colors.white30,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Icon(
+          size: 18.0,
+          Icons.settings,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  // toast 显示
+  _showToast(String message) {
+    return Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Colors.black54,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
+  // 构建 sliver 类型的 list
   buildSliverList(int count) {
     return SliverFixedExtentList(
       delegate: SliverChildBuilderDelegate(
@@ -388,6 +357,7 @@ class _XHSMinePageState extends State<XHSMinePage> {
     );
   }
 
+  // 构建 sliver 类型的 grid
   buildSliverGrid() {
     return SliverMasonryGrid.count(
       mainAxisSpacing: 8.0,
@@ -408,17 +378,6 @@ class _XHSMinePageState extends State<XHSMinePage> {
         );
       },
     );
-    // return SliverGrid(
-    //   delegate: SliverChildBuilderDelegate(
-    //     (context, index) {
-    //       return Text('data $index');
-    //     },
-    //     childCount: count,
-    //   ),
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 2,
-    //   ),
-    // );
   }
 }
 
