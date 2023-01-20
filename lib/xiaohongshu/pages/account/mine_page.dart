@@ -18,7 +18,12 @@ class XHSMinePage extends StatefulWidget {
 }
 
 class _XHSMinePageState extends State<XHSMinePage> {
+  // 控制顶部用户头像是否显示
+  bool _headerIsHidden = true;
+  // tab 数据
   final _tabs = <String>['笔记', '收藏', '赞过'];
+
+  late ScrollController? _controller;
 
   Future<XhsHomeModel> loadData() async {
     // 加载 json 文件
@@ -33,6 +38,23 @@ class _XHSMinePageState extends State<XHSMinePage> {
 
   @override
   void initState() {
+    _controller = ScrollController()
+      ..addListener(() {
+        if (_controller!.offset >= 160.0) {
+          if (_headerIsHidden != false) {
+            setState(() {
+              _headerIsHidden = false;
+            });
+          }
+        } else {
+          if (_headerIsHidden != true) {
+            setState(() {
+              _headerIsHidden = true;
+            });
+          }
+        }
+        print(_controller?.offset);
+      });
     _model = XhsHomeModel();
     loadData().then((XhsHomeModel value) {
       print(value);
@@ -83,6 +105,7 @@ class _XHSMinePageState extends State<XHSMinePage> {
         ),
         */
         body: NestedScrollView(
+          controller: _controller,
           // 顶部 AppBar
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return <Widget>[
@@ -101,6 +124,16 @@ class _XHSMinePageState extends State<XHSMinePage> {
                       XHSDrawerNotification().dispatch(context);
                     },
                   ),
+                  title: _headerIsHidden
+                      ? Text('')
+                      : ClipOval(
+                          child: SizedBox(
+                            width: 30,
+                            height: 30,
+                            child: Image.network(
+                                "https://sns-avatar-qc.xhscdn.com/avatar/61faaf8cac3510d0831026aa.jpg?imageView2/2/w/80/format/jpg"),
+                          ),
+                        ),
                   actions: [
                     _shareBtn(),
                   ],
