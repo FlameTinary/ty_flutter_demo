@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ty_flutter_demo/xiaohongshu/pages/account/qr_scan_page.dart';
 
 class MyLeftDrawer extends StatefulWidget {
   const MyLeftDrawer({super.key});
@@ -86,6 +87,7 @@ class _MyLeftDrawerState extends State<MyLeftDrawer> {
                     title: '帮助与客服',
                     action: () {},
                   ),
+                  // 扫一扫按钮
                   XHSIconBtn(
                     icon: Icon(
                       Icons.qr_code_scanner,
@@ -93,7 +95,12 @@ class _MyLeftDrawerState extends State<MyLeftDrawer> {
                       size: 15.0,
                     ),
                     title: '扫一扫',
-                    action: () {},
+                    action: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return QRViewExample();
+                      }));
+                    },
                   ),
                 ],
               ),
@@ -117,24 +124,31 @@ class XHSIconBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ClipOval(
-          child: Container(
-            color: Colors.grey.shade200,
-            padding: EdgeInsets.all(10.0),
-            child: icon,
+    return GestureDetector(
+      onTapUp: (details) {
+        if (action != null) {
+          action();
+        }
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ClipOval(
+            child: Container(
+              color: Colors.grey.shade200,
+              padding: EdgeInsets.all(10.0),
+              child: icon,
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 3.0),
-          child: Text(
-            title,
-            style: TextStyle(color: Color(0xff666666), fontSize: 12.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 3.0),
+            child: Text(
+              title,
+              style: TextStyle(color: Color(0xff666666), fontSize: 12.0),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

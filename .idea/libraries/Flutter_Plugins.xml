@@ -1,6 +1,9 @@
 <component name="libraryTable">
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
-    <CLASSES />
+    <CLASSES>
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-8.1.2" />
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/qr_code_scanner-1.0.1" />
+    </CLASSES>
     <JAVADOC />
     <SOURCES />
   </library>
