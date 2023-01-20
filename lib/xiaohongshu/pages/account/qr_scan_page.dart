@@ -40,42 +40,52 @@ class _QRViewExampleState extends State<QRViewExample> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  // 数据展示
                   if (result != null)
                     Text(
-                        'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
+                        'Barcode Type: ${describeEnum(result!.format)}   : ${result!.code}')
                   else
                     const Text('Scan a code'),
+
+                  // 闪光灯和摄像头翻转按钮
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
+                      // 闪光灯
                       Container(
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                             onPressed: () async {
+                              // 切换闪光灯
                               await controller?.toggleFlash();
                               setState(() {});
                             },
                             child: FutureBuilder(
+                              // 闪光灯状态
                               future: controller?.getFlashStatus(),
                               builder: (context, snapshot) {
-                                return Text('Flash: ${snapshot.data}');
+                                return Text(
+                                    "闪光灯: ${snapshot.data == true ? '打开' : '关闭'}");
                               },
                             )),
                       ),
+                      // 摄像头翻转按钮
                       Container(
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                             onPressed: () async {
+                              // 翻转摄像头
                               await controller?.flipCamera();
                               setState(() {});
                             },
                             child: FutureBuilder(
+                              // 获取摄像头状态
                               future: controller?.getCameraInfo(),
                               builder: (context, snapshot) {
                                 if (snapshot.data != null) {
                                   return Text(
-                                      'Camera facing ${describeEnum(snapshot.data!)}');
+                                      '摄像头翻转: ${describeEnum(snapshot.data!)}');
                                 } else {
                                   return const Text('loading');
                                 }
@@ -84,6 +94,7 @@ class _QRViewExampleState extends State<QRViewExample> {
                       )
                     ],
                   ),
+                  // 暂停和恢复按钮
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,20 +103,22 @@ class _QRViewExampleState extends State<QRViewExample> {
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () async {
+                            // 暂停摄像机
                             await controller?.pauseCamera();
                           },
-                          child: const Text('pause',
-                              style: TextStyle(fontSize: 20)),
+                          child:
+                              const Text('暂停', style: TextStyle(fontSize: 20)),
                         ),
                       ),
                       Container(
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () async {
+                            // 恢复摄像机
                             await controller?.resumeCamera();
                           },
-                          child: const Text('resume',
-                              style: TextStyle(fontSize: 20)),
+                          child:
+                              const Text('恢复', style: TextStyle(fontSize: 20)),
                         ),
                       )
                     ],
@@ -120,7 +133,7 @@ class _QRViewExampleState extends State<QRViewExample> {
   }
 
   Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
+    // 根据设备的宽度和高度, 设置扫描区域的大小
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
         ? 150.0
