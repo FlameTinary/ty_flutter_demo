@@ -1,4 +1,6 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ty_flutter_demo/xiaohongshu/pages/account/qr_scan_page.dart';
 
 class MyLeftDrawer extends StatefulWidget {
@@ -9,6 +11,8 @@ class MyLeftDrawer extends StatefulWidget {
 }
 
 class _MyLeftDrawerState extends State<MyLeftDrawer> {
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+
   final List<DrawerItemModel> _items = [
     DrawerItemModel(icon: Icon(Icons.person_add), title: "发现好友"),
     DrawerItemModel(icon: Icon(Icons.person_add), title: "小红市迎新年"),
@@ -95,11 +99,25 @@ class _MyLeftDrawerState extends State<MyLeftDrawer> {
                       size: 15.0,
                     ),
                     title: '扫一扫',
-                    action: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return QRViewExample();
-                      }));
+                    action: () async {
+                      var iosInfo = await deviceInfoPlugin.iosInfo;
+                      if (iosInfo.isPhysicalDevice) {
+                        // 真机
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return QRViewExample();
+                        }));
+                      } else {
+                        // 模拟器
+                        Fluttertoast.showToast(
+                            msg: '模拟器不能使用扫一扫功能, 请使用真机!',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 2,
+                            backgroundColor: Colors.black54,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+                      }
                     },
                   ),
                 ],

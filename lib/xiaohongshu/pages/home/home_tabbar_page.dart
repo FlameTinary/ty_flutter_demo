@@ -32,7 +32,6 @@ class _XHSTabPageState extends State<XHSTabPage> {
   void initState() {
     _model = XhsHomeModel();
     loadData().then((XhsHomeModel value) {
-      print(value);
       setState(() {
         _model = value;
       });

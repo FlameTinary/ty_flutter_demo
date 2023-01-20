@@ -22,7 +22,6 @@ class _TYBottomNavBarState extends State<TYBottomNavBar> {
 
   // floatingActionButton点击
   void _floatBtnClick() {
-    print('floatBtnClick');
     Navigator.push(
       context,
       PageRouteBuilder(

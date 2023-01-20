@@ -51,11 +51,9 @@ class _XHSMinePageState extends State<XHSMinePage> {
             });
           }
         }
-        print(_controller?.offset);
       });
     _model = XhsHomeModel();
     loadData().then((XhsHomeModel value) {
-      print(value);
       setState(() {
         _model = value;
       });
