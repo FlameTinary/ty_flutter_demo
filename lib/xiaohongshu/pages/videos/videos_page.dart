@@ -1,9 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-import 'package:ty_flutter_demo/xiaohongshu/models/home/home_model.dart';
 import 'package:video_player/video_player.dart';
 
 class XHSVideosPage extends StatefulWidget {
@@ -71,10 +67,7 @@ class _XHSVideosPageState extends State<XHSVideosPage> {
         setState(() {});
       })
       ..setLooping(true)
-      ..play()
-      ..addListener(() {
-        print(_controller.value);
-      });
+      ..play();
   }
 
   @override
