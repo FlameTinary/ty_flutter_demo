@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ty_flutter_demo/home/provider_Inherited_demo/provider_test_list.dart';
 import 'package:ty_flutter_demo/home/stream_builder_demo.dart';
 import 'package:ty_flutter_demo/home/value_listenable_demo.dart';
 import 'error_textfield_demo.dart';
@@ -52,6 +53,11 @@ class _HomePageState extends State<HomePage> {
       title: 'custom provider',
       subTitle: '实现一个provider',
       routePage: CustomProviderDemo(),
+    ),
+    CellItem(
+      title: 'provider test',
+      subTitle: 'provider 功能练习',
+      routePage: ProviderTestList(),
     ),
     CellItem(
       title: 'FutureBuilder demo',

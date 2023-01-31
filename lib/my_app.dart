@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ty_flutter_demo/xiaohongshu/pages/navigations/bottom_navbar.dart';
-// import './navigation/bottom_navigation_bar.dart';
+import './navigation/bottom_navigation_bar.dart';
 
 class MyAppDemo extends StatefulWidget {
   @override
@@ -42,16 +42,16 @@ class _MyAppDemoState extends State<MyAppDemo> with WidgetsBindingObserver {
         primarySwatch: Colors.red,
       ),
       // home: HomePage(),
-      // home: TYBottomNavBar(),
-      home: Stack(
-        children: [
-          XHSBottomNavBar(),
-          if (_isHidden)
-            Container(
-              color: Colors.orange,
-            ),
-        ],
-      ),
+      home: TYBottomNavBar(),
+      // home: Stack(
+      //   children: [
+      //     XHSBottomNavBar(),
+      //     if (_isHidden)
+      //       Container(
+      //         color: Colors.orange,
+      //       ),
+      //   ],
+      // ),
     );
   }
 }

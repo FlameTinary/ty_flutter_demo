@@ -3,6 +3,11 @@
     <CLASSES>
       <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-8.1.2" />
       <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/qr_code_scanner-1.0.1" />
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_web-2.0.13" />
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_avfoundation-2.3.8" />
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player-2.5.1" />
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus-8.0.0" />
+      <root url="file:///opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_android-2.3.10" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
