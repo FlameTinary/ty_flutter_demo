@@ -1,8 +1,15 @@
 # This is a generated file; do not edit or check into version control.
-device_info_plus=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus-8.0.0/
-fluttertoast=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-8.1.2/
-qr_code_scanner=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/qr_code_scanner-1.0.1/
-video_player=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player-2.5.1/
-video_player_android=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_android-2.3.10/
-video_player_avfoundation=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_avfoundation-2.3.8/
-video_player_web=/opt/flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_web-2.0.13/
+device_info_plus=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/device_info_plus-8.0.0/
+flutter_plugin_android_lifecycle=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/flutter_plugin_android_lifecycle-2.0.9/
+fluttertoast=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-8.1.2/
+image_gallery_saver=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/image_gallery_saver-1.7.1/
+image_picker=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/image_picker-0.8.6+4/
+image_picker_android=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/image_picker_android-0.8.5+9/
+image_picker_for_web=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/image_picker_for_web-2.1.11/
+image_picker_ios=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/image_picker_ios-0.8.7/
+permission_handler=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/permission_handler-8.3.0/
+qr_code_scanner=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/qr_code_scanner-1.0.1/
+video_player=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/video_player-2.5.1/
+video_player_android=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/video_player_android-2.3.10/
+video_player_avfoundation=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/video_player_avfoundation-2.3.8/
+video_player_web=/Users/sheldon/.pub-cache/hosted/pub.flutter-io.cn/video_player_web-2.0.13/
